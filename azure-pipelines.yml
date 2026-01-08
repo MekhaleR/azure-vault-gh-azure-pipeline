@@ -11,13 +11,6 @@ variables:
   Connection name: 'keyvaultname: $(keyvaultname)
                     secrets: $(secretname)'
 
-jobs:
-  - job: BuildJob
-    steps:
-      - task: AzureKeyVault@2
-        inputs:
-          azureSubscription: '889a2f2e-93e0-4ea5-ae7f-30c73e2b914b'
-          KeyVaultName: '$(keyvaultname)'
-          SecretsFilter: 'ghtoken'
-      - script: echo $(ghtoken)
+stagename: $(stagename)
+      - script: echo $(keyvaultname)
         displayName: 'Display Github Token'
