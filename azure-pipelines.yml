@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-keyvaultname: 'ghtoken'
+  keyvaultname: 'ghtoken'
   stagename: 'Build'
   newstage: 'Release'
 
