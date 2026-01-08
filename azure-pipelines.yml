@@ -5,6 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
+keyvaultname: 'ghtoken'
   stagename: 'Build'
   newstage: 'Release'
 
@@ -14,11 +15,3 @@ jobs:
       - script: echo $(ghtoken)
         displayName: 'Display GitHub Token'
 
-      - script: echo $(newstage)
-        displayName: 'Display New Stage Name'
-
-      - script: echo $(country)
-        displayName: 'Display Country Variable'
-
-      - script: echo "Group Variable Printed"
-        displayName: 'Display Group Variable Message'
