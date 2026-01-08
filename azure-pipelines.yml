@@ -5,12 +5,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  keyvaultname: 'ghtoken'
-  stagename: 'Build'
-  newstage: 'Release'
+  keyvaultname: 'myvault965782'
+  secretname: 'ghtoken'
+
+  Connection name: 'keyvaultname: $(keyvaultname)
+                    secrets: $(secretname)'
 
 jobs:
   - job: BuildJob
     steps:
-      - script: echo $(keyvaultname)
+      - task: AzureKeyVault@2
+        inputs:
+          azureSubscription: '889a2f2e-93e0-4ea5-ae7f-30c73e2b914b'
+          KeyVaultName: '$(keyvaultname)'
+          SecretsFilter: 'ghtoken'
+      - script: echo $(ghtoken)
         displayName: 'Display Github Token'
